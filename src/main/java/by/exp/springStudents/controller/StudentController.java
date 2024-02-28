@@ -1,6 +1,8 @@
 package by.exp.springStudents.controller;
 
 import by.exp.springStudents.model.Student;
+import by.exp.springStudents.service.StudentService;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +13,13 @@ import java.util.List;
 
 @RestController //ResponseBody and формирует ответ в JSON
 @RequestMapping("api/v1/students")
+@AllArgsConstructor
 public class StudentController {
+
+    private StudentService service;
 
     @GetMapping
     public List<Student> findAllStudent() {
-        return List.of(
-                Student.builder().firstName("Oleg").email("oleg12@lol.com").age(24).build(),
-                Student.builder().firstName("Alex").email("alex@lol.com").age(28).build(),
-                Student.builder().firstName("John").email("john12@lol.com").age(19).build()
-        );
+        return service.findAllStudent();
     }
 }
