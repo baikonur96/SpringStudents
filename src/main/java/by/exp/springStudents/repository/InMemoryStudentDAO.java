@@ -1,11 +1,14 @@
 package by.exp.springStudents.repository;
 
 import by.exp.springStudents.model.Student;
+import by.exp.springStudents.service.StudentService;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@Repository
 public class InMemoryStudentDAO {
 
     private final List<Student> STUDENTS = new ArrayList<>();
@@ -13,9 +16,6 @@ public class InMemoryStudentDAO {
     public List<Student> findAllStudent() {
         return STUDENTS;
     }
-
-    ;
-
 
     public Student saveStudent(Student student) {
         STUDENTS.add(student);

@@ -11,5 +11,5 @@ public interface StudentService {
     Student saveStudent(Student student);
     Student findByEmail(String email);
     Student updateStudent(Student student);
-    void deleteMessage(String email);
+    void deleteStudent(String email);
 }
